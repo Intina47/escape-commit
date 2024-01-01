@@ -6,7 +6,7 @@ void greetings(std::string name){
 }
 int main(int argc, char* argv[]){
 	std::string name;
-	if(argc < 2){
+	if(argc == 1){
 		std::cout<< "Hello there nice to meet you, what is your name? " <<std::endl;
 		std::cin >> name;
 		greetings(name);
