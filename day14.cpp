@@ -18,7 +18,7 @@ int minimumelement(vector<int>& arr, int n){
 		}
 		int mid = (l+r)/2;
 		res = min(res, arr[mid]);
-		if(arr[mid] >= arr[l]){
+		if(arr[mid] > arr[l] || arr[mid] == arr[l]){
 			l = mid + 1;
 		}else {
 			r = mid -1;
