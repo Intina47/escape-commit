@@ -1,3 +1,5 @@
+#include <iostream>
+using namespace std;
 class Solution{
     public:
     int search(int arr[], int target, int n){
