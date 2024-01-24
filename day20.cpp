@@ -1,5 +1,6 @@
 // three sum
 // three loops, i-first element, j-second element and k-look for third element
+//time o(n*3)
 #include <iostream>
 #include <vector>
 using namespace std;
