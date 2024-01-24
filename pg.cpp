@@ -1,28 +1,30 @@
-// three sum
-// three loops, i-first element, j-second element and k-look for third element
-#include <iostream>
+// two sum
+// return a pair of the indexes of the values
+// not sorted
+
 #include <vector>
+#include <iostream>
+#include <unordered_map>
 using namespace std;
 
-bool isthreesum(vector<int>& arr, int n, int sum){
-    for(int i=0; i<n-2; ++i){
-        for(int j=i+1; j<n-1; ++j){
-            for(int k=j+1; k<n; ++k){
-                if(arr[i] + arr[j] + arr[k] == sum){
-                    cout << "Three sum is true" << endl;
-                    return true;
-                }
-            }
+vector<int> twosum(vector<int> &arr, int n, int target){
+    unordered_map<int,int> ht ;
+    for(int i=0; i<n; ++i){
+        int complement = target - arr[i];
+        if(ht.count(complement)){
+            return {ht[complement], i};
         }
+        ht[arr[i]] = i;
     }
-    cout << "false" <<endl;
-    return false;
+    return {};
 }
 
-int main(){
-    vector<int> arr = {4,6,7,8,9,9};
+int  main(){
+    vector<int> arr = {2,4,5,6,8,1};
     int n = arr.size();
-    isthreesum(arr,n,10);
-
-    return 0;
+    vector<int> ar = twosum(arr, n, 14);
+    for(const auto& element : ar){
+        cout << element << ", ";
+    }
+return 0;
 }
