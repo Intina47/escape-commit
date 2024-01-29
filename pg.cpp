@@ -54,6 +54,10 @@ bool isHappy(int n) {
 //
 
 int maxSum(int arr[], int n){
+    if(n == 0){
+        cout << "Empty Array" <<endl;
+        return 0;
+    }
     int maxval = arr[0];
     int minval = arr[0];
     int maxprod = arr[0];
@@ -71,22 +75,10 @@ int maxSum(int arr[], int n){
 }
 
 int main() {
-    // int num = 19;
-
-    // if (isHappy(num)) {
-    //     std::cout << num << " is a happy number." << std::endl;
-    // } else {
-    //     std::cout << num << " is not a happy number." << std::endl;
-    // }
-
-    vector<int> arr = {5, 2, 3};
-    int target = 8;
-
-    vector<int> result = twosum(arr, target);
-    for(const auto& element: result){
-        cout << element << ",";
-    }
-    cout << endl;
+    int arr[] = {0,3,-5,-2,8,-7,-6,-2,-3,-9};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int result = maxSum(arr,n);
+    cout <<"Result: " <<result <<endl;
 
     return 0;
 }
