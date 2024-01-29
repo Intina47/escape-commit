@@ -2,6 +2,7 @@
 //Given an array that contains both positive and negative integers, the task is to find the product of the maximum product subarray.
 //
 #include <iostream>
+#include <climits>
 using namespace std;
 
 int maxProdSub(int arr[], int n){
