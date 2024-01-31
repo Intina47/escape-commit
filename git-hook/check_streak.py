@@ -24,7 +24,7 @@ today = datetime.date.today()
 yesterday = today - datetime.timedelta(days=1)
 
 # If the last commit was yesterday, increment the streak count
-if last_commit_date == yesterday:
+if last_commit_date == yesterday or last_commit_date == today:
     streak_count += 1
 else:
     streak_count = 0
