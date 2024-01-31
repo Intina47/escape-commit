@@ -1,4 +1,0 @@
-import datetime
-
-with open('streak.txt', 'a') as file:
-    file.write(str(datetime.date.today()))
