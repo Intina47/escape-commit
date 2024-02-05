@@ -74,11 +74,34 @@ int maxSum(int arr[], int n){
     return maxprod;
 }
 
+/*
+given an array of intergers return true 
+if any of the values in the array appear
+atleast twice in the array and false if every element is distinct.
+*/
+
+bool isunique(const vector<int>& arr, int n){
+    unordered_set<int> seen;
+    for(int i=0; i<n; ++i){
+        if(seen.count(arr[i])){
+            cout << arr[i] << " Appears twice" <<endl;
+            return true;
+        }else{
+            seen.insert(arr[i]);
+        }
+    }
+    return false;
+}
+
 int main() {
-    int arr[] = {0,3,-5,-2,8,-7,-6,-2,-3,-9};
-    int n = sizeof(arr)/sizeof(arr[0]);
-    int result = maxSum(arr,n);
-    cout <<"Result: " <<result <<endl;
+    const vector<int>arr = {0,3,-5,-2,8,-7,-6,-2,-3,-9};
+    int n = arr.size();
+    bool result = isunique(arr,n);
+    if(result){
+        cout << "Value appears twice" <<endl;
+    }else{
+        cout << "Unique" <<endl;
+    }
 
     return 0;
 }
