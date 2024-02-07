@@ -9,7 +9,7 @@ with open(os.path.join(home_dir, 'streak.txt'),'r') as file:
     else:
         print("File is not empty")
         first_line = file.readlines()[0]  # Get the first line of the file
-        streak_count = int(first_line.strip())  # The streak count is now the first line
+        streak_count = int(first_line.strip())
 
 with open('/workspaces/interview_prep/README', 'w') as file:
     file.write(f"Current Streak: {streak_count}")
