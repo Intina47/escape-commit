@@ -93,6 +93,19 @@ bool isunique(const vector<int>& arr, int n){
     return false;
 }
 
+// two sum: Check if pair with given Sum exists in Array
+vector<int> twoSum(vector<int>& arr, int target){
+    unordered_map<int, int> seen;
+    for(int i=0; i<arr.size(); i++){
+        int complement = target - arr[i];
+        if(seen.count(complement)){
+            return {seen[complement], i};
+        }else{
+            return {};
+        }
+    }
+}
+
 int main() {
     const vector<int>arr = {0,3,-5,-2,8,-7,-6,-2,-3,-9};
     int n = arr.size();
