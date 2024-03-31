@@ -8,6 +8,10 @@
 #include <unordered_set>
 using namespace std;
 
+// Given an array the size of 100 with the numbers 1-100 except one, find the missing number.
+// arr = [1, ..., 100]
+int findMissingNumber(const std::vector<int>& numbers) {}
+
 // two sum
 vector<int> twosum(const vector<int>& arr, int target){
     unordered_map<int, int> seen;
@@ -93,28 +97,10 @@ bool isunique(const vector<int>& arr, int n){
     return false;
 }
 
-// two sum: Check if pair with given Sum exists in Array
-vector<int> twoSum(vector<int>& arr, int target){
-    unordered_map<int, int> seen;
-    for(int i=0; i<arr.size(); i++){
-        int complement = target - arr[i];
-        if(seen.count(complement)){
-            return {seen[complement], i};
-        }else{
-            return {};
-        }
-    }
-}
 
 int main() {
-    const vector<int>arr = {0,3,-5,-2,8,-7,-6,-2,-3,-9};
-    int n = arr.size();
-    bool result = isunique(arr,n);
-    if(result){
-        cout << "Value appears twice" <<endl;
-    }else{
-        cout << "Unique" <<endl;
-    }
+    vector<int> arr = {1,3, 4, 5, 6, 7, 8, 9, 10};
+    cout << "Missing Element: " <<findMissingNumber(arr) << endl;
 
     return 0;
 }
