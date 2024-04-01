@@ -6,11 +6,51 @@
 #include <iostream>
 #include <unordered_map>
 #include <unordered_set>
+#include <map>
 using namespace std;
 
+//give an array [1,2,3,4,5] and a target=9 return the two indices from the array that add up to the target
+class twosumSolution {
+    public:
+        std::vector<int> twosum(const vector<int> &arr, int target){
+        if(arr.empty()){
+            return {};
+        }
+        unordered_map<int, int> indices;
+        for(int i=0; i<arr.size(); ++i){
+            int complement = target - arr[i];
+            if(indices.count(complement)){
+                return {indices[complement], i};
+            } else{
+                indices[arr[i]] = i;
+            }
+        }
+        return {0,0};
+    }
+
+    // map traversal and declaration
+    void coutFrequencies(const vector<int>& arr, int n){
+        map<int,int>mp;
+        for(int i=0; i<n; ++i){
+            mp[arr[i]]++;
+        }
+
+        for(auto x : mp){
+            cout << x.first << " " << x.second << endl;
+        }
+    }
+};
 // Given an array the size of 100 with the numbers 1-100 except one, find the missing number.
 // arr = [1, ..., 100]
-int findMissingNumber(const std::vector<int>& numbers) {}
+int findMissingNumber(const std::vector<int>& numbers) {
+    int n = 10;
+    int expected_sum = n * (n + 1 ) / 2 ; //sum of an arithmetic
+    int current_sum = 0;
+    for(auto num : numbers){
+        current_sum += num;
+    }
+    return (expected_sum - current_sum);
+}
 
 // two sum
 vector<int> twosum(const vector<int>& arr, int target){
@@ -99,8 +139,10 @@ bool isunique(const vector<int>& arr, int n){
 
 
 int main() {
-    vector<int> arr = {1,3, 4, 5, 6, 7, 8, 9, 10};
-    cout << "Missing Element: " <<findMissingNumber(arr) << endl;
-
+    twosumSolution sol;
+    vector<int> arr = {1,2, 4, 5, 6,1, 2, 4, 5, 6, 7, 2, 2, 3, 2, 2, 22, 2, 2, 2, 2,2, 2,  7, 8, 9, 3};
+    int target = 17;
+    int n = arr.size();
+    sol.coutFrequencies(arr,n);
     return 0;
 }
