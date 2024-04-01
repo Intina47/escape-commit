@@ -5,14 +5,24 @@
 #include <map>
 #include <unordered_map>
 using namespace std;
+/**
+ * @class Solution
+ * @brief Class that provides a solution for the two sum problem.
+ */
 class Solution {
 	public:
+		/**
+		 * @brief Finds two numbers in the given array that add up to the target.
+		 * @param arr The input array of integers.
+		 * @param target The target sum.
+		 * @return A vector containing the indices of the two numbers that add up to the target.
+		 *         If no such pair is found, an empty vector is returned.
+		 */
 		std::vector<int> twosum(std::vector<int> &arr, int target){
 			if(arr.empty()){
 				return {};
 			}
 			unordered_map<int, int> hashTable;
-			hashTable.reserve(arr.size());
 			for(int i=0; i<arr.size(); ++i) {
 				int complement = target - arr[i];
 				if(hashTable.count(complement)) {
