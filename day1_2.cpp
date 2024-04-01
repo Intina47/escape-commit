@@ -11,8 +11,9 @@
 #include <vector>
 using namespace std;
 
-vector<int> twoSumII(const vector<int>& arr, int target, int n){
+vector<int> twoSumII(const vector<int>& arr, int target){
     unordered_map<int, int> seen;
+    int n= arr.size();
     for(int i=0; i<n; ++i){
         int complement = target - arr[i];
         if(seen.count(complement)){
@@ -28,7 +29,7 @@ int main(){
     const vector<int> arr = {1,2,3,4,5,6,7};
     int n = arr.size();
     int target = 10;
-    vector<int> result = twoSumII(arr,target,n);
+    vector<int> result = twoSumII(arr,target);
     for(const auto& element : result){
         cout << element;
     }

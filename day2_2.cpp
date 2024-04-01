@@ -10,17 +10,18 @@
 using namespace std;
 
 int firstUniqChar(string s){
-    unordered_map<char, int> map;
+    unordered_map<char, int> mp;
     for(int i=0; i<s.length(); ++i){
-        map[s[i]]++;
+        mp[s[i]]++;
     }
 
     for(int i=0; i<s.length(); ++i){
-        if(map[s[i]] == 1){
+        if(mp[s[i]] == 1){
             return i;
             break;
         }
     }
+
     return -1;
 }
 
